@@ -77,25 +77,26 @@ export default function About() {
             {/* Wrapping framer motion up to down */}
               <motion.div
               variants={uptodownAnimated}
+              className=''
               >
                 <div className=''>
-                  <span className='text-4xl'>Hi, </span>
+                  <span className='text-[30px] md:text-[40px] lg:text-[50px]'>Hi, </span>
                 </div>
                 
                 <div className=''>
-                  <span className='text-yellow-300 text-[60px]'>
+                  <span className='text-yellow-300 text-[40px] md:text-[50px] lg:text-[65px]'>
                     I'm Wisnu Sadewa
                   </span>
                 </div>
 
                 <div  className=''>
-                  <p className='italic text-2xl'>
+                  <p className='italic text-[20px] md:text-[25px]'>
                     " I am interested in frontend web developer "
                   </p>
                 </div>
                 
                 <div className='mt-10 mb-5'>
-                  <p className='text-2xl'>Knowledge</p> 
+                  <p className='text-[20px] md:text-[25px]'>Knowledge</p> 
                 </div>
               </motion.div>
 
@@ -103,20 +104,20 @@ export default function About() {
                 <motion.div 
                 variants={downtoupAnimated}
                 className=''>
-                  <span className='flex'>
-                    <Image src={logo1} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo2} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo3} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo4} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo5} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo6} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo7} alt='/' width={30} className='bg-white mx-2'/>
-                    <Image src={logo8} alt='/' width={30} className='bg-white mx-2'/>                  
+                  <span className='flex flex-wrap gap-4'>
+                    <Image src={logo1} alt='/' width={30}  className='bg-white'/>
+                    <Image src={logo2} alt='/' width={30} className='bg-white'/>
+                    <Image src={logo3} alt='/' width={30} className='bg-white'/>
+                    <Image src={logo4} alt='/' width={30} className='bg-white'/>
+                    <Image src={logo5} alt='/' width={30} className='bg-white'/>
+                    <Image src={logo6} alt='/' width={30} className='bg-white'/>
+                    <Image src={logo7} alt='/' width={30} className='bg-white'/>
+                    <Image src={logo8} alt='/' width={30} className='bg-white'/>                  
                    </span>
 
                    <div className=''>
-                      <button className='border rounded-lg p-2 my-20 px-8 hover:bg-yellow-300 hover:text-black'>Hire Me</button>
-                      <button className='border rounded-lg p-2 ml-10 hover:bg-yellow-300 hover:text-black'>Download CV</button>
+                      <button className='border rounded-lg p-2 my-20 px-9 text-[13px] md:text-[15px] lg:text-[18px] hover:bg-yellow-300 hover:text-black'>Hire Me</button>
+                      <button className='border rounded-lg p-2 ml-10 text-[13px] md:text-[15px] lg:text-[18px] hover:bg-yellow-300 hover:text-black'>Download CV</button>
                    </div>
                 </motion.div>
 

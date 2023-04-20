@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
       <PageWrapper>
       <Layout pageTitle='Homepage'>
-       <Hero heading='My Name is Wisnu Sadewa' message='See My More Project.' message2='See it.'/>
+       <Hero heading='My Name is Wisnu Sadewa' message='See My Project.' message2='See it.'/>
        <Slider slides={SliderData}/>
        <Instagram/>
        </Layout>

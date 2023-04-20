@@ -62,8 +62,12 @@ const Header = () => {
         'absolute sm:hidden justify-center flex top-0 left-[-100%] right-0 bottom-0 w-full h-screen text-center items-center bg-black ease-in duration-300'
       }>
         <ul>
-          <li className='text-4xl p-4'><Link href='/'>Home</Link></li>
-          <li className='text-4xl p-4'><Link href='/contact'>Contact</Link></li>
+            <li className='text-4xl p-4 hover:text-lime-600'>
+              <Link href='/'>Home</Link>
+            </li>
+            <li className='text-4xl p-4 hover:text-lime-600'>
+              <Link href='/about'>About Me</Link>
+            </li>
         </ul>
       </div>
 

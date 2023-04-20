@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react'
 import { FaInstagram } from 'react-icons/fa';
-import img1 from '../../public/fotoku1HD.png';
+import img1 from '../../public/fotokuComp.png';
 import InstagramImg from './InstagramImg'
-motion
+
 
 export default function Instagram() {
   return (
@@ -17,21 +17,21 @@ export default function Instagram() {
         >
             <motion.div 
             whileHover={{ scale: 1.25, rotate: 0 }}
-            whileTap={{ scale: 0.5, rotate: 90, borderRadius: "100%" }}
+            // whileTap={{ scale: 0.5, rotate: 90, borderRadius: "100%" }}
             >
             <InstagramImg socialImage={img1}/>
             </motion.div>
             
             <motion.div
             whileHover={{ scale: 1.25, rotate: 0 }}
-            whileTap={{ scale: 0.5, rotate: 90, borderRadius: "100%" }}
+            // whileTap={{ scale: 0.5, rotate: 90, borderRadius: "100%" }}
             >
             <InstagramImg socialImage={img1}/>
             </motion.div>
             
             <motion.div
             whileHover={{ scale: 1.25, rotate: 0 }}
-            whileTap={{ scale: 0.5, rotate: 90, borderRadius: "100%" }}
+            // whileTap={{ scale: 0.5, rotate: 90, borderRadius: "100%" }}
             >
             <InstagramImg socialImage={img1}/>
             </motion.div>
