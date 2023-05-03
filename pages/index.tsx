@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Hero from '../components/Hero'
 import Layout from '@/components/Layout'
 import Slider from '@/components/Slider'
-import {SliderData} from '../components/SliderData'
 import Instagram from '@/components/Instagram/Instagram'
 import PageWrapper from '@/components/PageWrapper'
 
@@ -21,7 +20,7 @@ export default function Home() {
       <PageWrapper>
       <Layout pageTitle='Homepage'>
        <Hero heading='My Name is Wisnu Sadewa' message='See My Project.' message2='See it.'/>
-       <Slider slides={SliderData}/>
+       <Slider/>
        <Instagram/>
        </Layout>
        </PageWrapper>

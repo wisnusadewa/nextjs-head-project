@@ -26,8 +26,8 @@ export default function layout(props: LayoutProps) {
 
     <div>
         <Header />
-        <div>{children}</div>
-        <Footer />
+        <div className='bg-white'>{children}</div>
+        <Footer/>
     </div>
 
 

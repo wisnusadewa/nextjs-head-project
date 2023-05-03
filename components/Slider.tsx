@@ -1,49 +1,86 @@
 import React, { useState } from 'react'
-import { SliderData } from './SliderData'
 import Image from 'next/image'
-import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
+import du1 from '../public/nike-coklat.jpg'
+import PageWrapper from './PageWrapper'
+import { motion } from 'framer-motion'
+
+
+
+
+const downtoupAnimated = {
+    offscreen:{y: 300, opacity: 0},
+    onscreen:{y: 0, opacity: 1,
+    transition:{
+      duration: 2,
+    }
+    }
+  }
+
+  const uptodownAnimated = {
+    offscreen:{y: -300, opacity: 0},
+    onscreen:{y: 0, opacity: 1,
+    transition:{
+      duration: 2,
+    }
+    }
+  }
+
+
 
 export default function Slider({ slides } : any) {
-    const[current, setCurrent] = useState(0);
-    const length = slides.length;
 
-    const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1);
-    };
-  
-    const prevtSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1);
-    };
 
-    if(!Array.isArray(slides) || slides.length <= 0 ){
-        return null
-    }
-    
   return (
-    <div id='gallery' className='max-w-[1240px] mx-auto'>
-       <h1 className='text-xl text-center font-bold p-4'>Gallery</h1>
-        <div className='relative flex justify-center p-4'>
-            <div>
-                {SliderData.map((slide, index)=> {
-                    return (
 
-                <div key={index} className={
-                index === current ? 'opacity-[1] ease-in duration-1000':'opacity-0'
-                }>
+<>
 
-                    <FaArrowCircleLeft onClick={prevtSlide} size={50} className='absolute top-[50%] left-[50px] text-white/70 cursor-pointer select-none z-[2]'/>
-
-                    <FaArrowCircleRight onClick={nextSlide} size={50} className='absolute top-[50%] right-[50px] text-white/70 cursor-pointer select-none z-[2]'/>
-
-                    {index === current && (
-                        <Image src={slide.image} alt='/' width='1440' height='600' objectFit='cover'/>
-                        )}
-
-                </div>
-            )
-        })}
+<motion.div
+id='gallery'
+className='justify-center w-full mt-40'
+initial={'offscreen'}
+whileInView={'onscreen'}
+viewport={{once: true, amount:1}}
+transition={{staggerChildren: 0.5}}
+>
+    <motion.div
+    variants={uptodownAnimated}
+    className='flex justify-center mb-20 text-4xl text-yellow-500'
+    >My Gallery
+    </motion.div>
+    <motion.div 
+    variants={downtoupAnimated}
+    className='flex justify-center'>
+        <div className="carousel rounded-box  mx-6 md:mx-5 lg:mx-7 xl:mx-4">
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={1000} src={du1} alt='/' className="w-full" />
+            </div> 
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={500} src={du1} alt='/' className="w-full" />
+            </div> 
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={500} src={du1} alt='/' className="w-full" />
+            </div> 
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={500} src={du1} alt='/' className="w-full" />
+            </div> 
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={500} src={du1} alt='/' className="w-full" />
+            </div> 
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={500} src={du1} alt='/' className="w-full" />
+            </div> 
+            <div className="carousel-item w-1/2">
+                <Image width={1000} height={500} src={du1} alt='/' className="w-full" />
             </div>
         </div>
-    </div>
-  )
+    </motion.div>
+
+</motion.div>
+
+    </>
+  
+  
+  
+    
+    )
 }

@@ -11,13 +11,6 @@ html {
     background-image: url('https://images.unsplash.com/photo-1680978560866-481aff9fd6f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
 }
 
-@layer components {
-    .card {
-        @apply
-        bg-white text-gray-700
-        w-72 
-        min-h-[10rem]
-        shadow-lg rounded-md 
-        overflow-hidden
-        }
-    }
+body {
+    background-color: black;
+}
