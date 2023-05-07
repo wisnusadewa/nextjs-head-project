@@ -116,8 +116,8 @@ export default function About() {
                    </span>
 
                    <div className=''>
-                      <button className='border rounded-lg p-2 my-20 px-9 text-[13px] md:text-[15px] lg:text-[18px] hover:bg-yellow-300 hover:text-black'>Hire Me</button>
-                      <button className='border rounded-lg p-2 ml-10 text-[13px] md:text-[15px] lg:text-[18px] hover:bg-yellow-300 hover:text-black'>Download CV</button>
+                      <button className='border rounded-lg py-2 my-20 px-6 text-[10px] md:text-[15px] lg:text-[18px] md:px-8 lg:px-9 hover:bg-yellow-300 hover:text-black'>Hire Me</button>
+                      <button className='border rounded-lg p-2 ml-10 text-[10px] md:text-[15px] lg:text-[18px] hover:bg-yellow-300 hover:text-black'>Download CV</button>
                    </div>
                 </motion.div>
 

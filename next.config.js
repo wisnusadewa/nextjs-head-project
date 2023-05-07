@@ -8,6 +8,7 @@ module.exports = {
     domains: [
       'images.unsplash.com',
       'tailwindui.com',
+      "fakestoreapi.com",
     ]
   }
 }

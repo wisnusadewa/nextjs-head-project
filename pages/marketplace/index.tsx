@@ -3,52 +3,114 @@ import React, { useState, useEffect } from 'react'
 import PageWrapper from '@/components/PageWrapper'
 import Head from 'next/head'
 import Image from 'next/image'
-import  { products } from '../../components/products/products'
 import Navbar from '../../components/products/navbar'
 import Link from 'next/link'
+import SearchBar from '../../components/SearchBar/page'
+import Category from '../../components/Category/page'
+
 
 
 export default function Marketplace() {
 
+  const [ products, setProducts] = useState<any[]>([])
+  const [ isLoading, setIsLoading] =useState(false)
+      const [ isError, setIsError] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    const fecthData = async ()=> {
+    const res = await fetch('https://fakestoreapi.com/products');
+    res.json()
+    .then(json => {
+      console.log(json)
+      setProducts(json)
+      setIsLoading(false)
+    })
+    .catch((err) => {
+      setIsError(true);
+      setIsLoading(false)
+    })
+  }
+    fecthData();
+  }, [])
+
+  if (isLoading) return <h1>Loading data....</h1>;
+  else if (products && !isError)
+
   return (
     <>
     <Head>
-        {/* <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-        </link> */}
+       
     </Head>
 
     <PageWrapper>
     <Navbar />
+    <div>
+      <SearchBar/>
+    </div>
+      
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 
-          {products.map((d) => (
-            <Link key={d.id} href={d.href} className="group">
+    {/* Mapping Carausel API */}
+    <div className="carousel carousel-center rounded-box">
+      <div className="carousel-item cursor-pointer">
+        {
+          products?.map((e)=> (
+            <div key={e.id}>
+              <Image 
+              className='w-96 h-96 object-scale-down mx-2'
+              src={e.image} width={500} height={500} alt='products'/>
 
-              <div className="h-72 w-72 overflow-hidden rounded-lg bg-gray-200 shadow-2xl">
-                <Image width={1240} height={100}
-                  src={d.imageSrc}
-                  alt={d.imageAlt}
-                  className="h-full w-full object-cover object-center group"
-                />
+            </div>
+          ) )
+        }
+        
+      </div>
+    </div>
+
+    {/* Category Bar */}
+   <Category />
+
+      {/* Mapping Card Product API */}
+      <div className="mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+
+          {products?.map((item, index) => (
+            
+            
+            <div key={index} className="">             
+              <div className="grid card card-compact w-64 h-96 bg-white shadow-xl mx-auto my-5">
+                <figure 
+                className='w-full h-full'>
+                  <Image src={item.image} 
+                  className='object-scale-down'
+                  width={1000}
+                  height={1000}
+                  alt="Shoes" />
+                </figure>
               </div>
+                  <div className="grid grid-rows-3 border mx-2">
+                    <p className=" text-[15px] text-red-700">${item.price}</p>
+                    <p className='text-[12px] text-black'>{item.title}</p>
+                    <div className="grid">
+                      <button className="bg-yellow-300 rounded-lg text-black p-1 mb-1 mr-1">Buy Now</button>
+                    </div>
+                  </div>
+              
+            
+            
+            </div>
 
-              <h3 className="mt-4 text-sm text-gray-700">{d.name}</h3>
-              <p className=" text-gray-900">{d.price}</p>
-              <div className='text-center  bg-black p-1 text-white hover:bg-opacity-60'>
-                <button className='group'>Buy Now</button>
-              </div>
-            </Link>
+
+            
 
           ))}
         
         </div>
-
       </div>
     </div>
   
-
+    
    
     </PageWrapper>
     </>
