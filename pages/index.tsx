@@ -18,7 +18,7 @@ export default function Home() {
       <PageWrapper>
       <Layout pageTitle='Homepage'>
        <Hero heading='My Name is Wisnu Sadewa' message='See My Project.' message2='See it.'/>
-       <Slider/>
+       {/* <Slider/> */}
        <Instagram/>
        </Layout>
        </PageWrapper>

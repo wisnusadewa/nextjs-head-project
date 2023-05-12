@@ -14,6 +14,11 @@ import logo7 from '../public/typescript.svg'
 import logo8 from '../public/framer-motion.svg'
 import PageWrapper from '@/components/PageWrapper'
 import Head from 'next/head'
+import Link from 'next/link'
+import jsPDF from 'jspdf'
+import { useState } from 'react'
+
+
 
 
 const imageAnimated = {
@@ -41,8 +46,22 @@ const downtoupAnimated = {
     }
   }
 
+  
+const PDF_FILE_URL = 'http://localhost:3000/cv-fe-wisnusadewa.pdf'
+
+
+
 
 export default function About() {
+
+const downloadPDF = () => {
+var doc = new jsPDF('portrait', 'px', [579, 819]) 
+doc.addImage('https://i.ibb.co/q95YhKL/cv-fe-wisnusadewa.jpg', 'JPG', 0, 0, 579, 819)
+doc.save('resume.pdf')
+} 
+
+
+
 
   return (
     <>
@@ -111,14 +130,21 @@ export default function About() {
                     <Image src={logo4} alt='/' width={30} className='bg-white'/>
                     <Image src={logo5} alt='/' width={30} className='bg-white'/>
                     <Image src={logo6} alt='/' width={30} className='bg-white'/>
-                    <Image src={logo7} alt='/' width={30} className='bg-white'/>
+                    {/* <Image src={logo7} alt='/' width={30} className='bg-white'/> */}
                     <Image src={logo8} alt='/' width={30} className='bg-white'/>                  
                    </span>
 
                    <div className=''>
-                      <button className='border rounded-lg py-2 my-20 px-6 text-[10px] md:text-[15px] lg:text-[18px] md:px-8 lg:px-9 hover:bg-yellow-300 hover:text-black'>Hire Me</button>
-                      <button className='border rounded-lg p-2 ml-10 text-[10px] md:text-[15px] lg:text-[18px] hover:bg-yellow-300 hover:text-black'>Download CV</button>
-                   </div>
+                      <button className='border rounded-lg py-2 my-20 px-2 text-[10px] md:text-[15px] lg:text-[18px] md:px-8 lg:px-9 hover:bg-yellow-300 hover:text-black'>
+                        <Link href="http://wa.me/088809113137">Hire Me</Link>                       
+                        </button>
+                      <button 
+                      className='border rounded-lg p-2 ml-2 text-[10px] md:text-[15px] md:ml-20 md:px-8 lg:ml-20 lg:text-[18px] hover:bg-yellow-300 hover:text-black'
+                      onClick={() => {downloadPDF()}}                    
+                      >
+                        Resume
+                        </button>
+                    </div>
                 </motion.div>
 
             </div>
